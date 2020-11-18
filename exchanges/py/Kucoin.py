@@ -1,0 +1,2 @@
+class Exchange:ExchangeBase:
+    pass
