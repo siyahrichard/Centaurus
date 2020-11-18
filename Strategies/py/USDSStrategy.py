@@ -1,0 +1,2 @@
+class USDSStrategy:Strategy:
+    pass

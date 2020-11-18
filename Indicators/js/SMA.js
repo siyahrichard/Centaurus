@@ -1,0 +1,3 @@
+class SMA extends Indicator{
+  
+}

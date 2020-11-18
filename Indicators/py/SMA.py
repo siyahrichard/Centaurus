@@ -1,0 +1,2 @@
+class SMA:Indicator:
+    pass
