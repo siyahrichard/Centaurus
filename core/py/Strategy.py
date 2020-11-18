@@ -3,7 +3,7 @@ class Strategy:
     def onInit():
         pass
     @staticmethod
-    def onTick():
+    def onTick(e):
         pass
     @staticmethod
     def onTimer():

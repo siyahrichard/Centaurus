@@ -1,2 +1,2 @@
-class Exchange:ExchangeBase:
+class Exchange(ExchangeBase):
     pass

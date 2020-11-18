@@ -1,2 +1,2 @@
-class USDSStrategy:Strategy:
+class USDSStrategy(Strategy):
     pass

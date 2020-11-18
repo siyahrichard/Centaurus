@@ -2,7 +2,7 @@ class Strategy{
   static onInit(){
     return true;
   }
-  static onTick(){
+  static onTick(e){
     return true;
   }
   static onTimer(){

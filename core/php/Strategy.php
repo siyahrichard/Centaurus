@@ -3,7 +3,7 @@ class Strategy{
   static function onInit(){
     return true;
   }
-  static function onTick(){
+  static function onTick($e){
     return true;
   }
   static function onTimer(){

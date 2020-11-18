@@ -1,12 +1,12 @@
 class ExchangeBase:
     @staticmethod
-    def getSymbols():
+    def getSymbols(codes):
         pass
     @staticmethod
-    def getCandles():
+    def getCandles(symbol,from=0,count=100):
         pass
     @staticmethod
-    def getTickers():
+    def getTickers(symbols):
         pass
     @staticmethod
     def sendOrder(order):
