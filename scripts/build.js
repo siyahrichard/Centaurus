@@ -1,7 +1,7 @@
 const fs=require('fs');
 var coreClasses=[
   'Candle','Context','ExchangeBase','FinanceEvent','Indicator','Order','Strategy','StrategyInput',
-  'Symbol','Tester','Tick'
+  'Symbol','Tester','Tick','transmit'
 ];
 
 var txt=""; var ending="";

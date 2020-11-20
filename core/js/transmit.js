@@ -4,7 +4,7 @@ const HTTPS=require('https');
 const FS=require('fs');
 const URL=require('url');
 
-exports.transmit=function(_url,request_type,data,callback){
+function transmit(_url,request_type,data,callback){
   var url=URL.parse(_url);
   var protocol=url.protocol.toLowerCase()=="http:"?HTTP:HTTPS;
   if(data){
