@@ -1,4 +1,5 @@
 const {transmit,Candle,Symbol,Tick,ExchangeBase}=require('../../core/js/model.js');
+const querystring=require("querystring");
 class Exchange extends ExchangeBase{
   static base_url="https://api.kucoin.com";
   static symbols=null;
@@ -79,7 +80,14 @@ class Exchange extends ExchangeBase{
     });
   }
   static sendOrder(order,callback=null){
-    
+    var url=Exchange.base_url+"/api/v1/orders?";
+    var params={
+
+    };
+    url+=querystring.stringify(params);
+    transmit(url,"GET",null,function(res){
+      //manage result
+    });
   }
 }
 exports.Exchange=Exchange;
