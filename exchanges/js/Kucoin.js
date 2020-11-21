@@ -78,5 +78,8 @@ class Exchange extends ExchangeBase{
       }
     });
   }
+  static sendOrder(order,callback=null){
+    
+  }
 }
 exports.Exchange=Exchange;

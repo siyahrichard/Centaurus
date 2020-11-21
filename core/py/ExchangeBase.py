@@ -9,7 +9,7 @@ class ExchangeBase:
     def getTickers(symbols,callback=None):
         pass
     @staticmethod
-    def sendOrder(order):
+    def sendOrder(order,callback=None):
         pass
     @staticmethod
     def findOrder(params):
