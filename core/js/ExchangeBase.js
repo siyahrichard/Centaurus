@@ -1,7 +1,7 @@
 class ExchangeBase{
-  static getSymbols(codes){}
-  static getCandles(symbol,from=0,count=100){}
+  static getSymbols(codes,callback){}
   static getTickers(symbols,callback=null){}
+  static getCandles(symbol,from=0,count=100,callback=null){}
   static sendOrder(order){}
   static findOrder(params){}
   static closeOrder(order){}

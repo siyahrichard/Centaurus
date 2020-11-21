@@ -1,8 +1,8 @@
 <?php
 class ExchangeBase{
-  static function getSymbols($codes){}
-  static function getCandles($symbol,$from=0,$count=100){}
-  static function getTickers(){$symbols}
+  static function getSymbols($codes,$callback=null){}
+  static function getTickers($symbols,$callback=null){}
+  static function getCandles($symbol,$from=0,$count=100,$callback=null){}
   static function sendOrder($order){}
   static function findOrder($params){}
   static function getNamedPeriodOf($period){}

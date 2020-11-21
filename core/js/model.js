@@ -17,7 +17,7 @@ class Context{
 }
 
 class ExchangeBase{
-  static getSymbols(codes){}
+  static getSymbols(codes,callback){}
   static getCandles(symbol,from=0,count=100){}
   static getTickers(symbols,callback=null){}
   static sendOrder(order){}
@@ -71,8 +71,9 @@ class StrategyInput{
 }
 
 class Symbol{
-  constructor(code,base,quote,fee=0.002){
+  constructor(code,base,quote,minBase,minQuote,baseStep,quoteStep,feeCurrency,fee=0.002){
     this.code=code; this.base=base; this.quote=quote; this.fee=fee;
+    this.minBase=minBase; this.minQuote=minQuote; this.baseStep=baseStep; this.quoteStep=quoteStep;
   }
 }
 
