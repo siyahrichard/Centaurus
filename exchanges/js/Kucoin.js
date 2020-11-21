@@ -53,6 +53,30 @@ class Exchange extends ExchangeBase{
       }else if(callback)callback(null);
     });
   }
-  static getCandles(symbol,from=0,count=100,callback=null){}
+  static getCandles(symbol,period=3600,from=0,count=100,callback=null){
+    var now=parseInt(Date.now()/1000) - from*period;
+    var start=now - count*period;
+    var tf=(period/60)+"min";
+    if(period>=3600){
+      if(period>=86400){
+        if(period>=604800){
+          tf=(period/604800)+"week";
+        }else tf=(period/86400)+"day";
+      }else tf=(period/3600)+"hour";
+    }console.log('timeframe:'+tf);
+    if(typeof(symbol)=="object")symbol=symbol.code;
+    transmit(Exchange.base_url+'/api/v1/market/candles?type='+tf+'&symbol='+symbol+
+            '&startAt='+start+'&endAt='+now,'GET',null,function(res){
+      var o=JSON.parse(res);
+      if(o.code=='200000' && o.data){
+        var ret=[]; var c=null;
+        for(var i=0;i<o.data.length;i++){
+          c=o.data[i];
+          ret.push(new Candle(parseInt(c[0]),period,parseFloat(c[1]),parseFloat(c[3]),parseFloat(c[4]),parseFloat(c[2]),parseFloat(c[5]),symbol));
+        }
+        if(callback)callback(ret.reverse());
+      }
+    });
+  }
 }
 exports.Exchange=Exchange;

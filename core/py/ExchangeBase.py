@@ -3,7 +3,7 @@ class ExchangeBase:
     def getSymbols(codes,callback=None):
         pass
     @staticmethod
-    def getCandles(symbol,from=0,count=100,callback=None):
+    def getCandles(symbol,period=3600,from=0,count=100,callback=None):
         pass
     @staticmethod
     def getTickers(symbols,callback=None):
