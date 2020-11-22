@@ -1,3 +1,16 @@
+class SCF{
+  constructor(){
+    this.title="";
+    this.channel=null;
+    this.channelUpdateDelay=0;
+    this.datasets=[];
+    this.cursors=[];
+    this.themes=[];
+    this.type="line";
+    this.object=[];
+  }
+}
+
 class Candle{
   constructor(time,period,open,high,low,close,volume,symbol=null){
     this.time=time; this.open=open; this.high=high; this.low=low; this.close=close; this.volume=volume;
@@ -18,13 +31,28 @@ class Context{
 
 class ExchangeBase{
   static getSymbols(codes,callback){}
-  static getCandles(symbol,from=0,count=100){}
   static getTickers(symbols,callback=null){}
-  static sendOrder(order){}
+  static getCandles(symbol,period=3600,from=0,count=100,callback=null){}
+  static sendOrder(order,callback=null){}
   static findOrder(params){}
   static closeOrder(order){}
   static getNamedPeriodOf(period){}
   static getNamedExecutionModeOf(execution){}
+  static getTimeframeSeconds(tf_name){
+    var tfs={
+      'm1':60,
+      'm5':300,
+      'm10':600,
+      'm15':900,
+      'm30':1800,
+      'h1':3600,
+      'h4':14400,
+      'h8':28800,
+      'd1':86400,
+      'w1':604800
+    };
+    return tfs[tf_name.toLowerCase()];
+  }
 }
 
 class FinanceEvent{
@@ -136,6 +164,7 @@ function transmit(_url,request_type,data,callback){
   req.end();
 };
 
+exports.SCF=SCF;
 exports.Candle=Candle;
 exports.Context=Context;
 exports.ExchangeBase=ExchangeBase;

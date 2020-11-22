@@ -1,5 +1,6 @@
 const fs=require('fs');
 var coreClasses=[
+  'SCF',
   'Candle','Context','ExchangeBase','FinanceEvent','Indicator','Order','Strategy','StrategyInput',
   'Symbol','Tester','Tick','transmit'
 ];

@@ -1,5 +1,6 @@
 exports.config={
   "exchange":"Kucoin",
   "apiKey":"",
-  "apiSecret":""
+  "apiSecret":"",
+  "port":"800"
 };
