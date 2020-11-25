@@ -25,3 +25,7 @@ HTTP.createServer((request,response)=>{
     response.end();
   }
 }).listen(config.port);
+
+
+var context=new Context(Exchange);
+context.activate();

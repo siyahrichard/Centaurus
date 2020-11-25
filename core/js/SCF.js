@@ -5,8 +5,6 @@ class SCF{
     this.channelUpdateDelay=0;
     this.datasets=[];
     this.cursors=[];
-    this.themes=[];
-    this.type="line";
     this.object=[];
   }
 }
