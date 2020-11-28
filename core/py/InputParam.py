@@ -1,4 +1,4 @@
-class StrategyInput:
+class InputParam:
     def __init__(self,title,name,defaultValue,userValue,typeName='int',start=0,step=0,stop=0):
         self.title=title
         self.name=name

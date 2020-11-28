@@ -1,7 +1,7 @@
 const fs=require('fs');
 var coreClasses=[
   'SCF','SCFDataset',
-  'Candle','Context','ExchangeBase','FinanceEvent','Indicator','Order','Strategy','StrategyInput',
+  'Candle','Context','ExchangeBase','FinanceEvent','Indicator','Order','Strategy','InputParam',
   'Symbol','Tester','Tick','transmit'
 ];
 

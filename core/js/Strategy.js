@@ -1,11 +1,14 @@
 class Strategy{
-  static onInit(){
+  constructor(symbols){
+    this.symbols=symbols?symbols:[];
+  }
+  onInit(){
     return true;
   }
-  static onTick(e){
+  onTick(e){
     return true;
   }
-  static onTimer(){
+  onTimer(){
     return true;
   }
   static getDefaultInputs(){

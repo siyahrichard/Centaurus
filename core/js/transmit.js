@@ -5,6 +5,7 @@ const FS=require('fs');
 const URL=require('url');
 
 function transmit(_url,request_type,data,callback){
+  console.log("Requesting: "+_url);
   var url=URL.parse(_url);
   var protocol=url.protocol.toLowerCase()=="http:"?HTTP:HTTPS;
   if(data){

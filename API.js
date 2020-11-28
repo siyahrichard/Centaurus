@@ -12,9 +12,9 @@ class API{
         if(parts.length>4){
           var timeframe=ExchangeBase.getTimeframeSeconds(parts[3]);
           var symbol=parts[4].toUpperCase();
-          var to=(parts[5])?parseInt(parts[5]):100;
-          var from=(parts[6])?parseInt(parts[6]):0;
-          Exchange.getCandles(symbol,timeframe,from,to,function(res){
+          var count=(parts[5])?parseInt(parts[5]):100;
+          var from=(parts[6])?parseInt(parts[6]):Math.floor(Date.now()/1000/timeframe);
+          Exchange.getCandles(symbol,timeframe,from,count,function(res){
             var scf=new SCF();
             var dataset1=[];
             for(var i=0;i<res.length;i++){

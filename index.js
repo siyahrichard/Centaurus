@@ -1,4 +1,4 @@
-const {SCF,transmit,Candle,Symbol,ExchangeBase}=require('./core/js/model.js');
+const {SCF,Context,transmit,Candle,Symbol,ExchangeBase}=require('./core/js/model.js');
 const {config}=require('./config/config.js');
 const {Exchange}=require('./exchanges/js/'+config.exchange+'.js');
 const HTTP=require('http');

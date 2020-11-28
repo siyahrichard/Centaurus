@@ -5,9 +5,15 @@ class SCF{
     this.channelUpdateDelay=0;
     this.datasets=[];
     this.cursors=[];
-    this.themes=[];
-    this.type="line";
     this.object=[];
+  }
+}
+
+class SCFDataset{
+  constructor(){
+    this.data=[];
+    this.type='line';
+    this.theme=null;
   }
 }
 
@@ -16,15 +22,40 @@ class Candle{
     this.time=time; this.open=open; this.high=high; this.low=low; this.close=close; this.volume=volume;
     this.symbol=symbol; this.period=period;
   }
-  static get(index,period,symbol){
-    return new Candle(0,period,0,0,0,0,0,symbol);
+  static get(symbol,period,index){
+    return Context.activeObject.getCandle(symbol,period,index);
   }
 }
 
 class Context{
   static activeObject=null;
-  constructor(strategy,symbols,inputs,memo){
+  static candleStore={};//[symbol][period][index]
+  static indicatorStore={};//[symbol][period][indicator uid]
+  constructor(exchange,strategy,symbols,inputs,memo){
+    this.exchange=exchange;
     this.strategy=strategy; this.symbols=symbols; this.inputs; this.memo=memo;
+  }
+  getCandle(symbol,period,index,callback){
+    if(this.candleStore[symbol]){
+      if(this.candleStore[symbol][period]){
+        if(this.candleStore[symbol][period][index]){
+          if(callback)callback(this.candleStore[symbol][period][index]);
+          return this.candleStore[symbol][period][index]
+        }
+      }else { this.candleStore[symbol][period]={}; }
+    }else{ this.candleStore[symbol]={}; this.candleStore[symbol][period]={}; }
+    //retrieve from exchange
+    var from= (index - this.candleRequestBound);
+    this.exchange.getCandles(symbol,period,from,this.bound*2,function(candles){
+      for(var i=0;i<candles.length;i++){
+        var candle_index=Math.floor(candles[i].time/period);
+        this.candleStore[candles[i].symbol][candles[i].period][candle_index]=candles[i];
+        if(candle_index==index && callback)callback(candles[i]);
+      }
+    });
+  }
+  setCandleRequestBound(bound=5){
+    this.candleRequestBound=bound;
   }
   activate(){ Context.activeObject=this; }
 }
@@ -62,8 +93,14 @@ class FinanceEvent{
 }
 
 class Indicator{
-  constructor(){
+  constructor(symbol,timeframe,inputs){
     this.buffers=[];
+    this.inputs=inputs?inputs:Indicator.getDefaultInputs()
+  }
+  onCalculate(calculated,totals){}
+  getUID(){return "_";}
+  static getDefaultInputs(){
+    return [];
   }
 }
 
@@ -77,13 +114,13 @@ class Order{
 }
 
 class Strategy{
-  static onInit(){
+  onInit(){
     return true;
   }
-  static onTick(e){
+  onTick(e){
     return true;
   }
-  static onTimer(){
+  onTimer(){
     return true;
   }
   static getDefaultInputs(){
@@ -91,10 +128,16 @@ class Strategy{
   }
 }
 
-class StrategyInput{
+class InputParam{
   constructor(title,name,defaultValue,userValue,typeName='int',start=0,step=0,stop=0){
     this.title=title; this.name=name; this.defaultValue=defaultValue; this.typeName=typeName;
     this.start=start; this.step=step; this.stop=0; //for optimization
+    this.value=userValue?userValue:this.defaultValue;
+  }
+  static getByName(arr,name){
+    for(var i=0;i<arr.length;i++)
+      if(arr[i].name==name)return arr[i];
+    return null;
   }
 }
 
@@ -127,6 +170,7 @@ const FS=require('fs');
 const URL=require('url');
 
 function transmit(_url,request_type,data,callback){
+  console.log("Requesting: "+_url);
   var url=URL.parse(_url);
   var protocol=url.protocol.toLowerCase()=="http:"?HTTP:HTTPS;
   if(data){
@@ -165,6 +209,7 @@ function transmit(_url,request_type,data,callback){
 };
 
 exports.SCF=SCF;
+exports.SCFDataset=SCFDataset;
 exports.Candle=Candle;
 exports.Context=Context;
 exports.ExchangeBase=ExchangeBase;
@@ -172,7 +217,7 @@ exports.FinanceEvent=FinanceEvent;
 exports.Indicator=Indicator;
 exports.Order=Order;
 exports.Strategy=Strategy;
-exports.StrategyInput=StrategyInput;
+exports.InputParam=InputParam;
 exports.Symbol=Symbol;
 exports.Tester=Tester;
 exports.Tick=Tick;

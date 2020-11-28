@@ -42,12 +42,12 @@ class Exchange extends ExchangeBase{
     transmit(Exchange.base_url+"/api/v1/market/allTickers","GET",null,function(res){
       var o=JSON.parse(res);
       if(o.code=="200000" && o.data){
-        var ret=[]; var now=o.data.time;
+        var ret={}; var now=o.data.time;
         var ticker=o.data.ticker;
         for(var i=0;i<ticker.length;i++){
           if(symbols.indexOf(ticker[i].symbol.toUpperCase().replace('-',''))>=0){
-            ret.push(new Tick(ticker[i].symbol,now,parseFloat(ticker[i].sell),parseFloat(ticker[i].buy),
-            parseFloat(ticker[i].vol),parseFloat(ticker[i].changeRate)));
+            ret[tiker[i].symbol]=new Tick(ticker[i].symbol,now,parseFloat(ticker[i].sell),parseFloat(ticker[i].buy),
+            parseFloat(ticker[i].vol),parseFloat(ticker[i].changeRate));
           }
         }
         if(callback)callback(ret);
@@ -55,8 +55,10 @@ class Exchange extends ExchangeBase{
     });
   }
   static getCandles(symbol,period=3600,from=0,count=100,callback=null){
-    var now=parseInt(Date.now()/1000) - from*period;
-    var start=now - count*period;
+    //var now=parseInt(Date.now()/1000) - from*period;
+    //var start=now - count*period;
+    var end = from * period;
+    var start = (from - count)*period;
     var tf=(period/60)+"min";
     if(period>=3600){
       if(period>=86400){
@@ -67,7 +69,7 @@ class Exchange extends ExchangeBase{
     }console.log('timeframe:'+tf);
     if(typeof(symbol)=="object")symbol=symbol.code;
     transmit(Exchange.base_url+'/api/v1/market/candles?type='+tf+'&symbol='+symbol+
-            '&startAt='+start+'&endAt='+now,'GET',null,function(res){
+            '&startAt='+start+'&endAt='+end,'GET',null,function(res){
       var o=JSON.parse(res);
       if(o.code=='200000' && o.data){
         var ret=[]; var c=null;

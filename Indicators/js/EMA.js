@@ -6,23 +6,32 @@ class SMA extends Indicator{
     this.inputs=inputs?inputs:SMA.getDefaultInputs();
   }
   onCalculate(calculated,totals){
-    var sum=0; var candle=null; var first= (calculated > period) ? calculated - period : period;
+    var value=0; var candle=null; var first= (calculated > period) ? calculated - period : period;
     var period=InputParam.getByName(this.inputs,'period').value;
     var apply=InputParam.getByName(this.inputs,'apply_price').value;
+    var candle=null;
 
-    for(var i=first;i<totals;i++){
-      var sum=0;
+    if(first==period){
+      value=0;
       for(var j=0;j<period;j++){
         candle=Candle.get(symbol,timeframe,i+j);
-        if(candle)sum+=candle[apply];
+        if(candle)value+=candle[apply];
       }
-      this.buffers[0][i]=sum/period;
+      this.buffers[0][first]=value/period;
+      first++; //point frist to next
+    }
+    for(var i=first;i<totals;i++){
+      value=0;
+      candle=Candle.get(symbol,timeframe,i+j);
+      if(candle)value=candle[apply];
+      this.buffers[0][i]= this.getCurrentEMA(value,this.buffers[0][i-1]);
     }
   }
+  getCurrentEMA(now_value,pervious_ema,period,smoothing=2){
+    return (now_value * (smoothing / (1+period) )) + (pervious_ema * (1- (smoothing / (1+period) ) ));
+  }
   getUID(){
-    var period=InputParam.getByName(this.inputs,'period').value;
-    var apply=InputParam.getByName(this.inputs,'apply_price').value;
-    return this.symbol.toLowerCase().replace('-','_')+'_'+this.timeframe+'_'+period+"_"+apply;
+    return this.symbol.toLowerCase().replace('-','_')+'_'+this.timeframe+'_'+this.period;
   }
   static getDefaultInputs(){
     return [
