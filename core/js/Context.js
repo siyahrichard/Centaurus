@@ -57,5 +57,8 @@ class Context{
   setCandleRequestBound(bound=5){
     this.candleRequestBound=bound;
   }
+  addIndicator(symbol,period,indicator,inputs){
+    
+  }
   activate(){ Context.activeObject=this; }
 }

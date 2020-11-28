@@ -6,4 +6,7 @@ class Candle{
   static get(symbol,period,index){
     return Context.activeObject.getCandle(symbol,period,index);
   }
+  static shift(value=0,period=3600){
+    return Math.floor(Date.now()/1000/period) - value;
+  }
 }
