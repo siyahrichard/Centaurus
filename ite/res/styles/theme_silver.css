@@ -1,0 +1,91 @@
+body[vision="dark"] #backBtn{background-image:url('../images/png/silver-back.png');background-size:contain;}
+body[vision="light"] #backBtn{background-image:url('../images/png/red-back.png');background-size:contain;}
+
+body[vision="dark"] #mobileBtn{background-image:url('../images/png/silver-mobile-menu.png');background-size: 100%;}
+body[vision="light"] #mobileBtn{background-image:url('../images/png/silver-mobile-menu.png');background-size: 100%;}
+
+
+body[vision="dark"] #topBar{background-color:#4a4945;color:white;}
+body[vision="light"] #topBar{background-color:#586aaf;color:black;}
+body[vision="dark"] #topMenuArea{background-color:#4a4945;color:white;}
+body[vision="light"] #topMenuArea{background-color:#fafbff;color:black;}
+body[vision="dark"] #sideBar{background-color:#4a4945;color:white;}
+body[vision="light"] #sideBar{background-color:#0b153e;color:white;}
+body[vision="dark"] #statusBar{background-color:#4a4945;color:white;}
+body[vision="light"] #statusBar{background-color:#fafbff;color:black;}
+
+body[vision="dark"] #sideMinBtn{background-image:url('../images/png/silver-side-min.png');}
+body[vision="light"] #sideMinBtn{background-image:url('../images/png/silver-side-min.png');}
+body[vision="dark"] #sideNormalBtn{background-image:url('../images/png/silver-side-normal.png');}
+body[vision="light"] #sideNormalBtn{background-image:url('../images/png/silver-side-normal.png');}
+body[vision="dark"] #sideMaxBtn{background-image:url('../images/png/silver-side-max.png');}
+body[vision="light"] #sideMaxBtn{background-image:url('../images/png/silver-side-max.png');}
+
+/*body background color= workarea background color or workarea must be transparent*/
+body[vision="dark"]{background-color:#5c5b56;}
+body[vision="light"]{background-color:white;}
+body[vision="dark"] #workArea{background-color: transparent;color:white;}
+body[vision="light"] #workArea{background-color: transparent;color:#4d5057;}
+
+#notifyDialog.info{background:linear-gradient(#45ad64,#226e38);color:white;border:0.1em solid #45ad64;border-radius: 0.3em;box-shadow: 0em 0.2em 0.3em #2f302f}
+#notifyDialog.warning{background:linear-gradient(#f59d33,#a3661c);color:white;border:0.1em solid #f59d33;border-radius: 0.3em;box-shadow: 0em 0.2em 0.3em #2f302f}
+#notifyDialog.error{background:linear-gradient(#e64964,#b5223b);color:white;border:0.1em solid #e64964;border-radius: 0.3em;box-shadow: 0em 0.2em 0.3em #2f302f}
+
+#messageContainer{background-color: rgba(0,0,0,0.3);}
+#messageDialog{background-color: white;border-radius: 0.5em;border:0.2em solid #602880;border-radius: 0.5em ;box-shadow: 0px 0px 0.5em #602880;}
+#messageOperations{background-color:#e3d1ed; border-bottom-right-radius:0.3em; border-bottom-left-radius:0.3em;}
+
+.btn{border-radius: 0.5em;min-width: 6em}
+.positive{background:linear-gradient(#45ad64,#226e38);color:white;border:0.1em solid #45ad64;}
+.neutral{background:linear-gradient(#f59d33,#a3661c);color:white;border:0.1em solid #f59d33;}
+.negative{background:linear-gradient(#e64964,#b5223b);color:white;border:0.1em solid #e64964;}
+
+#sideBar {/*box-shadow: 0px 0px 0.5em rgba(33,33,33,0.5);*/}
+#workArea{box-shadow: 0px 0px 0.2em rgba(33,33,33,0.3) inset}
+
+body[vision="dark"] #sideMenuArea{margin:3em 0px;background-color: #363533;padding:1em 0px 1em 0px;}
+body[vision="light"] #sideMenuArea{margin:3em 0px;background-color: #0d194a;padding:1em 0px 1em 0px;}
+
+body[vision="dark"] #sideMenuArea li[selected="true"]{background-color:#52514c;cursor: default;}
+body[vision="light"] #sideMenuArea li[selected="true"]{background-color:#2b4577;cursor: default;}
+body[vision="dark"] #sideMenuArea li[selected="false"]{background-color:#333333;cursor: pointer;}
+body[vision="light"] #sideMenuArea li[selected="false"]{background-color:#1a2a67;cursor: pointer;}
+
+body[vision="dark"] #topMenuArea li[selected="true"]{background-color:#52514c;cursor: default;}
+body[vision="light"] #topMenuArea li[selected="true"]{background-color:#ccddfc;cursor: default;}
+body[vision="dark"] #topMenuArea li[selected="false"]{cursor: pointer;}
+body[vision="light"] #topMenuArea li[selected="false"]{cursor: pointer;}
+
+body[vision="dark"] #floatMenuBtn{background-image: url('../images/png/silver-float-menu.png');background-color:#4a4945;}
+body[vision="light"] #floatMenuBtn{background-image: url('../images/png/red-float-menu.png');background-color:#fafbff;}
+
+body[vision="dark"] .gse-component{background-color: silver}
+body[vision="light"] .gse-component{background-color: snow}
+
+/*---------------------------------- Define graphics ----------------------------------*/
+body[vision="dark"] .graph[icon="home"]{background-image: url('../images/png/silver-home.png');}
+body[vision="light"] .graph[icon="home"]{background-image: url('../images/png/silver-home.png');}
+
+body[vision="dark"] .graph[icon="gallery"]{background-image: url('../images/png/silver-gallery.png');}
+body[vision="light"] .graph[icon="gallery"]{background-image: url('../images/png/silver-gallery.png');}
+
+body[vision="dark"] .graph[icon="settings"]{background-image: url('../images/png/silver-gear.png');}
+body[vision="light"] .graph[icon="settings"]{background-image: url('../images/png/silver-gear.png');}
+
+body[vision="dark"] .graph[icon="screener"]{background-image: url('../images/png/silver-list.png');}
+body[vision="light"] .graph[icon="screener"]{background-image: url('../images/png/silver-list.png');}
+
+body[vision="dark"] .graph[icon="trade"]{background-image: url('../images/png/silver-chart.png');}
+body[vision="light"] .graph[icon="trade"]{background-image: url('../images/png/silver-chart.png');}
+
+body[vision="dark"] .graph[icon="wallet"]{background-image: url('../images/png/silver-wallet.png');}
+body[vision="light"] .graph[icon="wallet"]{background-image: url('../images/png/silver-wallet.png');}
+
+body[vision="dark"] .graph[icon="network"]{background-image: url('../images/png/silver-earth.png');}
+body[vision="light"] .graph[icon="network"]{background-image: url('../images/png/silver-earth.png');}
+
+
+body[vision="dark"] .graph[icon="dark"]{background-image: url('../images/png/silver-moon.png');}
+body[vision="light"] .graph[icon="dark"]{background-image: url('../images/png/silver-moon.png');}
+body[vision="dark"] .graph[icon="light"]{background-image: url('../images/png/silver-sun.png');}
+body[vision="light"] .graph[icon="light"]{background-image: url('../images/png/silver-sun.png');}

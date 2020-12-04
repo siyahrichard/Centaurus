@@ -1,0 +1,16 @@
+*{outline: none;padding:0px;margin:0px}
+
+#searchBox{display: inline-block;background-color: white;padding:0.2em;border-radius: 0.3em}
+#searchBox input{background-color: transparent;border:none;width: 5em;transition: width 0.5s;vertical-align: middle;}
+#searchBox input:focus{width: 10em}
+#searchBox img{height:1.5em;margin-left: 0.5em;vertical-align: middle;}
+
+.activity.view1.layout1 #symbolPan{display: inline-block;height: calc(100% - 25vh);width: 20%;vertical-align: top}
+.activity.view1.layout1 #workspacePan{display: inline-block;height: calc(100% - 25vh);width: 79%;vertical-align: top;background-color: #fafdff;}
+
+.activity.view1.layout1 #tradePan .container{height:25vh;overflow-y: auto;overflow-x: hidden;font-size: 0.8em}
+.activity.view1.layout1 #tradePan table{width: 100%;border-spacing: 0px}
+.activity.view1.layout1 #tradePan table thead td{background-color: #0d0442;color:white;padding:0.5em;text-align: center;}
+.activity.view1.layout1 #tradePan table tbody tr:nth-child(2n) td{background-color: #d7d4ec}
+.activity.view1.layout1 #tradePan table tbody td:not(:first-child){border-left:1px solid gray;}
+.activity.view1.layout1 #tradePan table tbody td{padding:0.5em}

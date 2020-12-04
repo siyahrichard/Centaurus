@@ -1,0 +1,152 @@
+.hide{display:none !important;} .hide *{display: none !important;}
+.blue{background-color: dodgerblue;color:white;border:none;border-bottom:0.2em solid #5baeff;}
+.green{background-color:  #0c5e00;color:white;border:none;border-bottom:0.2em solid #47993b}
+.orange{background-color:  #e27526;color:white;border:none;border-bottom:0.2em solid #ff9142}
+.yellow{background-color:  #fcd303;color:black;border:none;border-bottom:0.2em solid #fae996}
+.red{background-color:  #a80000;color:white;border:none;border-bottom:0.2em solid #d63b3b}
+.gold{background-color:  #a37201;color:white;border:none;border-bottom:0.2em solid #d8b156}
+.gray{background-color:  #272729;color:white;border:none;border-bottom:0.2em solid #3e3e42}
+
+.blue.glowable:hover{box-shadow:0px 0px 0.25em #5baeff}
+.green.glowable:hover{box-shadow:0px 0px 0.25em #47993b}
+.orange.glowable:hover{box-shadow:0px 0px 0.25em #ff9142}
+.yellow.glowable:hover{box-shadow:0px 0px 0.25em #fae996}
+.red.glowable:hover{box-shadow:0px 0px 0.25em #d63b3b}
+.gold.glowable:hover{box-shadow:0px 0px 0.25em #d8b156}
+.gray.glowable:hover{box-shadow:0px 0px 0.25em #3e3e42}
+
+.btn,.rbtn{padding:0.5em;font-weight:bold;cursor:pointer;display:inline-block;outline:none;text-decoration:none}
+.btn.ing:active,.rbtn.ing:active{padding-bottom:0.4em;padding-top:0.6em}
+.def{font-family:Arial, Helvetica, sans-serif;font-size:0.8em}
+.rbtn{border-radius:0.4em}
+.center{text-align: center;}
+
+.gs-card-1{margin:0.5em; border:0.2em solid silver;border-radius: 0.5em;padding:0.3em;overflow: hidden;}
+.gs-card-1 .side1{display: inline-block;vertical-align: top;width:calc(80% - 0.6em);margin-bottom: 0.6em}
+.gs-card-1 .side2{display: inline-block;vertical-align: top;width:20%}
+.gs-card-1 .side2 img{width: 90%;margin:5%;vertical-align: middle;}
+.gs-card-1 .side1 p.less{max-height: 5em;overflow: hidden;}
+.gs-card-1 .operation{margin:-0.3em; background-color:#e6e9f7;padding:0.3em;}
+
+div[control="gsCloseButton"]{display:inline-block;padding:0.2em;user-select:none}
+div[control="gsCloseButton"]  .closeButtonOf{float:right;cursor:pointer}
+
+div[control="gsCloseButton"][theme="default"]{background-color: #122635;color: white;width: 10em;box-shadow: 0px 0px 0.8em #376a91 inset;}
+div[control="gsCloseButton"][theme="default"] span{margin-left:0.8em;}
+div[control="gsCombo"]{display:inline-block;user-select: none}
+div[control="gsCombo"][rtl="false"] span{float:right}
+div[control="gsCombo"][rtl="true"] input{direction:rtl;border:none;outline: none}
+div[control="gsCombo"][theme="default"]{border:1px solid black;padding:0.2em;cursor:pointer;background-color:white;}
+div[control="gsCombo"][theme="default"] span{cursor:pointer}
+div[control="gsCombo"][theme="default"] input{border:0px solid gray;outline:none}
+div[control="gsDialog"][theme="default"]{position:fixed;top:0px;left:0px;right:0px;bottom:0px;backgrond-color:rgba(100,100,100,0.3);}
+div[control="gsDialog"][theme="default"] .border{position:absolute;background-color:transparent;border:0.3em solid rgba(100,100,100,0.6);margin:-0.3em;border-radius:0.2em}
+div[control="gsDialog"][theme="default"] .title{position:absolute;background-color:dodgerblue;color:white;font-weight:bold;font-family:helvetica}
+div[control="gsDialog"][theme="default"] .title span{margin:0.3em 1em;display: inline-block;}
+div[control="gsDialog"][theme="default"] .content{position:absolute;background-color:snow;}
+div[control="gsDialog"][theme="default"] .title button{float:right;height: 2em;margin-left: 0.2em;padding-top:0.3em;}
+
+div[control="gsDialog"].center80 .border{width:80vw;height:80vh;top:10vh;left:10vh;}
+div[control="gsDialog"].center80 .title{width:80vw;font-size:1em;top:10vh;left:10vh;}
+div[control="gsDialog"].center80 .content{width:80vw;height:calc(80vh - 1.7em);top:calc(10vh + 1.7em);left:10vh}
+ul[control="gsItemList"]{list-style:none}
+
+ul[control="gsItemList"][theme="default"]{margin:0px;padding:0px}
+ul[control="gsItemList"][theme="default"] li{display:inline-block;margin:0.6em;border:1px solid black;background-color:snow;font-size:1em;width:15em;overflow:hidden;height:1.45em}
+ul[control="gsItemList"][theme="default"] .closeButtonOf{float: right;cursor: pointer;background-color: red;color: white;font-size: 1em;padding:0.2em;width: 1.45em;text-align: center;}
+ul[control="gsItemList"][theme="default"] span{margin: 0.2em;display: inline-block;max-width:12em;overflow:hidden}
+ul[control="gsMenu"]{list-style:none;user-select:none;z-index:1000000}
+ul[control="gsMenu"][mode="relative"]{position:absolute;}
+ul[control="gsMenu"][mode="context"]{position:fixed;}
+ul[control="gsMenu"][visible="true"]{display:block;}
+ul[control="gsMenu"][visible="false"]{display:none;}
+ul[control="gsMenu"][rtl="true"] li{direction:rtl;text-align:right}
+ul[control="gsMenu"][rtl="false"] li{direction:ltr;text-align:left}
+
+ul[control="gsMenu"][theme="default"]{padding:0em;margin:0em;border:1px solid silver;box-shadow:5px 3px 3px gray;max-height: 50vh;overflow-y: auto}
+ul[control="gsMenu"][theme="default"] li{padding:0.2em 0.5em;font-size:1em;background-color:white;color:#424244;min-width:10em;cursor:pointer}
+ul[control="gsMenu"][theme="default"] li:hover{background-color:dodgerblue;color:white}
+ul[control="gsMenu"][theme="default"] li[over="true"]{background-color:dodgerblue;color:white}
+ul[control="gsMenu"][theme="default"] li:not(:fist-child){border-bottom:1px solid sliver}
+ul[control="gsMenu"][theme="default"] li.separator{border-bottom:1px solid gray;height:0px;padding:0px}
+
+
+#gsMenuBackArea{position:fixed;top:0px; left:0px; right:0px; bottom:0px;z-index:1;opacity:0;background-color:transparent}
+div[control="gsPanel"]{position:fixed;}
+div[control="gsPanel"][dock="left"]{top:0px;left:0px;bottom:0px;transition:left 0.3s;will-changer:left}
+div[control="gsPanel"][dock="right"]{top:0px;right:0px;bottom:0px;transition:right 0.3s;will-changer:right}
+div[control="gsPanel"][dock="top"]{top:0px;left:0px;right:0px;transition:top 0.3s;will-changer:top}
+div[control="gsPanel"][dock="bottom"]{right:0px;left:0px;bottom:0px;transition:bottom 0.3s;will-changer:bottom}
+
+div[control="gsPanel"][dock="left"].panel20,div[control="gsPanel"][dock="right"].panel20
+{width:20vw}
+div[control="gsPanel"][dock="top"].panel20,div[control="gsPanel"][dock="bottom"].panel20
+{height:20vh}
+div[control="gsPanel"][theme="default"]{padding:0.5em;background-color:#180C1F;}
+div[control="gsPanel"][dock="right"][theme="default"]{border-left:0.2em solid #bad2ff;}
+div[control="gsPanel"][dock="left"][theme="default"]{border-right:0.2em solid #bad2ff;}
+div[control="gsPanel"][dock="top"][theme="default"]{border-bottom:0.2em solid #bad2ff;}
+div[control="gsPanel"][dock="bottom"][theme="default"]{border-top:0.2em solid #bad2ff;}
+div[control="gsTab"]{}
+div[control="gsTab"]>ul{list-style:none}
+div[control="gsTab"]>ul>li{display:inline-block}
+
+
+div[control="gsTab"][theme="default"]{}
+div[control="gsTab"][theme="default"]>ul{overflow:hidden;}
+div[control="gsTab"][theme="default"]>ul>li{background-color:dodgerblue;color:white;font-size:1em;border-top-right-radius:0.3em;border-top-left-radius:0.3em;margin-right:1px;padding:0.2em 0.5em;cursor:pointer}
+div[control="gsTab"][theme="default"]>ul>li[active="true"]{background-color:blue;}
+div[control="gsSlider"]{height: 100%}
+div[control="gsSlider"] .keeper{height: 100%;width: 100%;overflow:hidden;position: relative;}
+div[control="gsSlider"] .sliderContainer{top:0px;left:0px;bottom:0px;right:0px;word-break: keep-all;white-space: nowrap;position: absolute;}
+div[control="gsSlider"][direction="horizontal"] .sliderContainer{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+	direction:ltr !important;
+}
+div[control="gsSlider"][direction="horizontal"] .sliderContainer::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+div[control="gsSlider"][direction="horizontal"] .sliderPage{display: inline-block;height: 100%;width: 100%}
+div[control="gsSlider"][direction="horizontal"] img.sliderPage{object-fit: cover;}
+div[control="gsSlider"][direction="horizontal"][theme="default"] button{position: absolute;top:calc(50% - 2em);width: 0px;background-color: transparent;border:none;outline: none}
+div[control="gsSlider"][direction="horizontal"][theme="default"] button.next{right: 4em}
+div[control="gsSlider"][direction="horizontal"][theme="default"] button.back{left: 1em}
+div[control="gsSlider"][direction="horizontal"][theme="default"] button:before{color: white;background-color: gray;border-radius: 5pt;border: 2px solid orange;padding: 0.3em 0.6em;font-size: 1.5em;opacity: 0.7;font-family: monospace;cursor: pointer;transition: opacity 1s;}
+div[control="gsSlider"][direction="horizontal"][theme="default"] button:hover:before{opacity: 1}
+div[control="gsSlider"][direction="horizontal"][theme="default"] button.next:before{content: '>';}
+div[control="gsSlider"][direction="horizontal"][theme="default"] button.back:before{content: '<';}
+div[control="gsSlider"][theme="default"] button.play{left:1em;top:unset; bottom: 1em !important}
+div[control="gsSlider"][autoplay="true"][theme="default"] button.play:before{content:'\25A0';}
+div[control="gsSlider"][autoplay="false"][theme="default"] button.play:before{content:'\25B6';}
+div[control="gsSlider"][direction="horizontal"][theme="default"] button{text-align: left;direction: ltr;}
+
+div[control="gsSuggestBox"]{display:inline-block;user-select: none}
+div[control="gsSuggestBox"][theme="default"]{border:1px solid black;padding:0.2em;cursor:pointer;background-color:white;}
+div[control="gsSuggestBox"][theme="default"] input{border:0px solid gray;outline:none;border:none;direction: inherit;}
+ul[control="gsRollerItems"][theme="default"]{display: block;margin: 0px;padding: 0px;list-style: none;position: relative;}
+ul[control="gsRollerItems"][theme="default"] li{display: inline-block;position: absolute;top: 0px;}
+div[control="gsList"]{padding:0.5em;margin:0.1em;user-select: none}
+
+div[control="gsList"][theme="default"]{border-radius: 0.3em; border:0.05em solid silver;}
+div[control="gsRichText"]{padding:0.3em;margin:0.1em;user-select: none}
+
+div[control="gsRichText"][theme="default"]{border-radius: 0.3em; border:0.05em solid silver;}
+div[control="gsPreview"][theme="default"]{position:fixed;top:0px;left:0px;right:0px;bottom:0px;background-color:rgba(0,0,0,0.9);z-index:999999;user-select:none}
+div[control="gsPreview"][theme="default"] .gsPreviewNext{height:2em;width:2em;position:fixed;right:1em;top:calc(50vh - 1em);cursor:pointer}
+div[control="gsPreview"][theme="default"] .gsPreviewNext svg{height:100%;width:100%}
+div[control="gsPreview"][theme="default"] .gsPreviewBack{height:2em;width:2em;position:fixed;left:1em;top:calc(50vh - 1em);transform: rotateY(180deg);;cursor:pointer}
+div[control="gsPreview"][theme="default"] .gsPreviewBack svg{height:100%;width:100%}
+div[control="gsPreview"][theme="default"] .gsPreviewClose{height:2em;width:2em;position:fixed;right:1em;top:1em;cursor:pointer}
+div[control="gsPreview"][theme="default"] .gsPreviewClose svg{height:100%;width:100%}
+div[control="gsPreview"][theme="default"] .gsPreviewView{position:fixed;right:5em;top:5em;left:5em;bottom:5em}
+div[control="gsPreview"][theme="default"] .gsPreviewView img{width:100%;height:100%;object-fit:scale-down}
+
+div[control="gsPreview"][theme="default"] svg {pointer-events:none}
+div[control="gsPreview"][theme="default"] svg *{pointer-events:none}
+img.gsAutoZoom{cursor:crosshair}
+.bound[control="gsAutoZoom"][theme="default"] {border:3px solid rgba(33,33,33,0.5);background:rgba(97, 139, 255,0.5);position:absolute;cursor:crosshair;pointer-events:none;z-index:99999;}
+.vision[control="gsAutoZoom"][theme="default"] {border:3px solid rgba(33,33,33,0.5);background-color:white;position:absolute;border-radius:0.5em;background-repeat:no-repeat;z-index:99999;}
