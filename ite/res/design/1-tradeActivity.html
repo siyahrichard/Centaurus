@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html style="height:100%">
 	<head>
+		<style type="text/css">
+			html,body,.layout1{height: 100%}
+		</style>
 		<link rel="stylesheet" type="text/css" href="../styles/gs-full-1.css"/>
 		<link rel="stylesheet" type="text/css" href="../styles/gse.css"/>
 		<link rel="stylesheet" type="text/css" href="../styles/theme_silver.css"/>
@@ -12,9 +15,68 @@
 		<script type="text/javascript" src="../lang/en.js"></script>
 		<script type="text/javascript" src="../layouts/sidebar-menu.js"></script>
 	</head>
-	<body ort="land" drt="left" vast="true" hr="false" mode="app" onload="gse.start()" sidebar="close" sidesize="normal" vision="light" class="-with-top-menu" site="true"  topbar="static">
-		<!-- Activity View 1 -->
+	<body ort="land" drt="left" vast="true" hr="false" mode="app" onload="gse.start()" sidebar="close" sidesize="normal" vision="light" class="-with-top-menu" site="true"  topbar="static" style="height:100%">
+		<div class="activity view3 layout1">
+			<!-- Activity View 3 -->
+			<div id="symbolPan">
+				<ul id="symbolList">
+					<li><span class="base">BTC</span><span class="quote">USDT</span></li>
+					<li><span class="base">ETH</span><span class="quote">USDT</span></li>
+					<li><span class="base">LTC</span><span class="quote">USDT</span></li>
+				</ul>
+				<ul class="hlist" id="quoteFilterPan">
+					<li>All</li><li>USDT</li><li>BTC</li><li>ETH</li>
+				</ul>
+			</div>
+			<div id="workspacePan">
+				<ul class="hlist" id="workspaceToolbar">
+					<li><img src="../images/png/toggleSymbolPanel.png"/></li>
+					<li class="sep"></li>
+				</ul>
+				<div id="chartArea"></div>
+			</div>
+			<div id="tradePan">
+				<ul id="tradeFilterPan"></ul>
+				<div class="container">
+					<table id="tradeArea">
+						<thead>
+							<tr>
+								<td>Ticket</td><td>Type</td><td>Symbol</td><td>Volume</td><td>Executed</td><td>Open Time</td>
+								<td class="history">Close Time</td><td>Commission</td><td class="margin">Swap</td><td class="future">Profit</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>AF456...76B</td><td>Buy limit</td><td>BTC-USDT</td><td>0.001</td><td>0.001</td><td>Today 8:44 AM</td>
+								<td class="history">Today 9:10 AM</td><td>0.000001 USDT</td><td class="margin">0</td><td class="future">0.0001 USDT</td>
+							</tr>
 
-		<!--/ Activity View 1 -->
+
+							<tr>
+								<td>AF456...76B</td><td>Buy limit</td><td>BTC-USDT</td><td>0.001</td><td>0.001</td><td>Today 8:44 AM</td>
+								<td class="history">Today 9:10 AM</td><td>0.000001 USDT</td><td class="margin">0</td><td class="future">0.0001 USDT</td>
+							</tr>
+							<tr>
+								<td>AF456...76B</td><td>Buy limit</td><td>BTC-USDT</td><td>0.001</td><td>0.001</td><td>Today 8:44 AM</td>
+								<td class="history">Today 9:10 AM</td><td>0.000001 USDT</td><td class="margin">0</td><td class="future">0.0001 USDT</td>
+							</tr>
+							<tr>
+								<td>AF456...76B</td><td>Buy limit</td><td>BTC-USDT</td><td>0.001</td><td>0.001</td><td>Today 8:44 AM</td>
+								<td class="history">Today 9:10 AM</td><td>0.000001 USDT</td><td class="margin">0</td><td class="future">0.0001 USDT</td>
+							</tr>
+							<tr>
+								<td>AF456...76B</td><td>Buy limit</td><td>BTC-USDT</td><td>0.001</td><td>0.001</td><td>Today 8:44 AM</td>
+								<td class="history">Today 9:10 AM</td><td>0.000001 USDT</td><td class="margin">0</td><td class="future">0.0001 USDT</td>
+							</tr>
+							<tr>
+								<td>AF456...76B</td><td>Buy limit</td><td>BTC-USDT</td><td>0.001</td><td>0.001</td><td>Today 8:44 AM</td>
+								<td class="history">Today 9:10 AM</td><td>0.000001 USDT</td><td class="margin">0</td><td class="future">0.0001 USDT</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!--/ Activity View 3 -->
+		</div>
 	</body>
 </html>

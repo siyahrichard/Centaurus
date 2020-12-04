@@ -1,16 +1,24 @@
 *{outline: none;padding:0px;margin:0px}
+ul.hlist{margin: 0px;padding: 0px;} ul.hlist li{display: inline-block}
 
 #searchBox{display: inline-block;background-color: white;padding:0.2em;border-radius: 0.3em}
 #searchBox input{background-color: transparent;border:none;width: 5em;transition: width 0.5s;vertical-align: middle;}
 #searchBox input:focus{width: 10em}
 #searchBox img{height:1.5em;margin-left: 0.5em;vertical-align: middle;}
 
-.activity.view1.layout1 #symbolPan{display: inline-block;height: calc(100% - 25vh);width: 20%;vertical-align: top}
-.activity.view1.layout1 #workspacePan{display: inline-block;height: calc(100% - 25vh);width: 79%;vertical-align: top;background-color: #fafdff;}
+.activity.view3.layout1 #symbolPan{display: inline-block;height: calc(100% - 25vh);width: 20%;vertical-align: top}
+.activity.view3.layout1 #workspacePan{display: inline-block;height: calc(100% - 25vh);width: 79%;vertical-align: top;background-color: #fafdff;}
 
-.activity.view1.layout1 #tradePan .container{height:25vh;overflow-y: auto;overflow-x: hidden;font-size: 0.8em}
-.activity.view1.layout1 #tradePan table{width: 100%;border-spacing: 0px}
-.activity.view1.layout1 #tradePan table thead td{background-color: #0d0442;color:white;padding:0.5em;text-align: center;}
-.activity.view1.layout1 #tradePan table tbody tr:nth-child(2n) td{background-color: #d7d4ec}
-.activity.view1.layout1 #tradePan table tbody td:not(:first-child){border-left:1px solid gray;}
-.activity.view1.layout1 #tradePan table tbody td{padding:0.5em}
+.activity.view3.layout1 #tradePan .container{height:25vh;overflow-y: auto;overflow-x: hidden;font-size: 0.8em}
+.activity.view3.layout1 #tradePan table{width: 100%;border-spacing: 0px}
+.activity.view3.layout1 #tradePan table thead td{background-color: #0d0442;color:white;padding:0.5em;text-align: center;}
+.activity.view3.layout1 #tradePan table tbody tr:nth-child(2n) td{background-color: #d7d4ec}
+.activity.view3.layout1 #tradePan table tbody td:not(:first-child){border-left:1px solid gray;}
+.activity.view3.layout1 #tradePan table tbody td{padding:0.5em}
+
+.activity.view3 #symbolList{list-style: none;height: calc(100% - 2.5em);overflow-x: hidden;overflow-y: auto;border:1px solid silver;font-size: 0.8em}
+.activity.view3 #symbolList li{margin: 0.1em;border:1px solid silver;border-radius: 0.2em;padding:0.5em;}
+.activity.view3 #symbolList li .base{font-size: 1em;font-weight: bold}
+.activity.view3 #symbolList li .quote{font-size: 0.8em;margin-left: 0.5em}
+.activity.view3 #symbolList li .quote:before{content: '/'}
+.activity.view3.layout1 #quoteFilterPan li{border-right: 1px solid silver;border-left: 1px solid silver; border-bottom: 1px solid silver;padding:0.5em;font-size: 0.7em;border-bottom-left-radius: 0.3em;border-bottom-right-radius: 0.3em;margin-left:0.3em}
