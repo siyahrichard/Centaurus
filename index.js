@@ -11,6 +11,10 @@ const {API}=require('./API.js');
   console.log(res);
 });*/
 
+if(config.globalTickDelay)Context.globalTickDelay=config.globalTickDelay;
+var context=new Context(Exchange);
+context.activate(config.strategies);
+
 function log(x){console.log(x);}
 HTTP.createServer((request,response)=>{
   response.writeHead(200, {'Content-Type': 'application/json'});
@@ -18,14 +22,10 @@ HTTP.createServer((request,response)=>{
   var path_parts=url.pathname.split(/\/+/);
   var ro={code:0,data:null,message:null};
   if(path_parts[1]=="api"){
-    API.run(url,request,response);
+    API.run(url,request,response,Context.activeObject);
   }else{
     ro.message="invalid request path";
     response.write(JSON.stringify(ro));
     response.end();
   }
 }).listen(config.port);
-
-
-var context=new Context(Exchange);
-context.activate();

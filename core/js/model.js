@@ -25,16 +25,34 @@ class Candle{
   static get(symbol,period,index){
     return Context.activeObject.getCandle(symbol,period,index);
   }
+  static shift(value=0,period=3600){
+    return Math.floor(Date.now()/1000/period) - value;
+  }
 }
 
 class Context{
   static activeObject=null;
   static candleStore={};//[symbol][period][index]
   static indicatorStore={};//[symbol][period][indicator uid]
-  constructor(exchange,strategy,symbols,inputs,memo){
+  static globalTickerTimer=0;
+  static globalTickDelay=30000;
+  constructor(exchange,inputs,memo){
     this.exchange=exchange;
-    this.strategy=strategy; this.symbols=symbols; this.inputs; this.memo=memo;
+    this.inputs; this.memo=memo;
+    this.currentTickers=null;
+    this.strategyShortcuts=[]; this.strategies={}; this.strategyInstances=[];
   }
+  initStrategies(){
+    this.symbols=[];
+    for(var i=0;i<this.strategyInstances.length;i++){
+      for(var j=0;j<this.strategyInstances[i].symbols.length;j++){
+        if(this.symbols.indexOf(this.strategyInstances[i].symbols[j])<0){
+          this.symbols.push(this.strategyInstances[i].symbols[j]);
+        }
+      }
+    }
+  }
+  addStrategy(strategy){ this.strategies.push(strategy); this.initStrategies(); }
   getCandle(symbol,period,index,callback){
     if(this.candleStore[symbol]){
       if(this.candleStore[symbol][period]){
@@ -54,10 +72,41 @@ class Context{
       }
     });
   }
+  static onGlobalTick(){
+    var e=null; var context=Context.activeObject;
+    context.exchange.getTicks(context.symbols,function(ticks){
+      context.currentTickers=ticks;
+      for(var i=0;i<context.strategyInstances.length;i++){
+        e=null;
+        if(context.strategyInstances[i].symbols.length==1){
+          var tick=ticks[context.strategyInstances[i].symbols[0]];
+          e=new FinanceEvent(context.strategyInstances[i].symbols[0],tick,null,null);
+        }
+        context.strategyInstances[i].onTick(e);
+      }
+    });
+    clearTimeout(Context.globalTickerTimer);
+    Context.globalTickerTimer=setTimeout(Context.onGlobalTick,Context.globalTickDelay)
+  }
   setCandleRequestBound(bound=5){
     this.candleRequestBound=bound;
   }
-  activate(){ Context.activeObject=this; }
+  addIndicator(symbol,period,indicator,inputs){
+
+  }
+  activate(shortcuts){
+    this.strategyShortcuts=shortcuts;
+    for(var i=0;i<shortcuts.length;i++){
+      if(!this.strategies[shortcuts[i].name]){
+        this.strategies[shortcuts[i].name] = require("../../Strategies/js/"+shortcuts[i].name+".js");
+      }
+      var si=new this.strategies[shortcuts[i].name].strategy(shortcuts[i].symbols,shortcuts[i].inputs,this);
+      this.strategyInstances.push(si);
+    }
+    Context.activeObject=this;
+    this.initStrategies();
+    Context.onGlobalTick();
+  }
 }
 
 class ExchangeBase{
@@ -114,6 +163,11 @@ class Order{
 }
 
 class Strategy{
+  constructor(symbols,inputs,context){
+    this.symbols=symbols?symbols:[];
+    this.inputs=[];
+    this.context=context;
+  }
   onInit(){
     return true;
   }

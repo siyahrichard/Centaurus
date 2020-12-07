@@ -37,17 +37,18 @@ class Exchange extends ExchangeBase{
         else symbols[i]=symbols[i].toUpperCase().replace('-','');
       }
     }
-    console.log(symbols);
     //request the web
     transmit(Exchange.base_url+"/api/v1/market/allTickers","GET",null,function(res){
       var o=JSON.parse(res);
       if(o.code=="200000" && o.data){
         var ret={}; var now=o.data.time;
         var ticker=o.data.ticker;
-        for(var i=0;i<ticker.length;i++){
-          if(symbols.indexOf(ticker[i].symbol.toUpperCase().replace('-',''))>=0){
-            ret[tiker[i].symbol]=new Tick(ticker[i].symbol,now,parseFloat(ticker[i].sell),parseFloat(ticker[i].buy),
-            parseFloat(ticker[i].vol),parseFloat(ticker[i].changeRate));
+        if(ticker){
+          for(var i=0;i<ticker.length;i++){
+            if(symbols.indexOf(ticker[i].symbol.toUpperCase().replace('-',''))>=0){
+              ret[ticker[i].symbol]=new Tick(ticker[i].symbol,now,parseFloat(ticker[i].sell),parseFloat(ticker[i].buy),
+              parseFloat(ticker[i].vol),parseFloat(ticker[i].changeRate));
+            }
           }
         }
         if(callback)callback(ret);

@@ -3,17 +3,19 @@ class Context{
   static candleStore={};//[symbol][period][index]
   static indicatorStore={};//[symbol][period][indicator uid]
   static globalTickerTimer=0;
-  constructor(exchange,strategies,inputs,memo){
+  static globalTickDelay=30000;
+  constructor(exchange,inputs,memo){
     this.exchange=exchange;
-    this.strategies=strategies instanceof Array?strategies:[]; this.inputs; this.memo=memo;
-    initStrategies(); this.currentTickers=null;
+    this.inputs; this.memo=memo;
+    this.currentTickers=null;
+    this.strategyShortcuts=[]; this.strategies={}; this.strategyInstances=[];
   }
   initStrategies(){
     this.symbols=[];
-    for(var i=0;i<this.strategies.length;i++){
-      for(var j=0;j<this.strategies[i].symbols.length;j++){
-        if(this.symbols.indexOf(this.strategies[i].symbols[j])<0){
-          this.symbols.push(this.strategies[i].symbols[j]);
+    for(var i=0;i<this.strategyInstances.length;i++){
+      for(var j=0;j<this.strategyInstances[i].symbols.length;j++){
+        if(this.symbols.indexOf(this.strategyInstances[i].symbols[j])<0){
+          this.symbols.push(this.strategyInstances[i].symbols[j]);
         }
       }
     }
@@ -42,23 +44,35 @@ class Context{
     var e=null; var context=Context.activeObject;
     context.exchange.getTicks(context.symbols,function(ticks){
       context.currentTickers=ticks;
-      for(var i=0;i<context.strategies.length;i++){
+      for(var i=0;i<context.strategyInstances.length;i++){
         e=null;
-        if(context.strategies[i].symbols.length==1){
-          var tick=ticks[context.strategies[i].symbols[0]];
-          e=new FinanceEvent(context.strategies[i].symbols[0],tick,null,null);
+        if(context.strategyInstances[i].symbols.length==1){
+          var tick=ticks[context.strategyInstances[i].symbols[0]];
+          e=new FinanceEvent(context.strategyInstances[i].symbols[0],tick,null,null);
         }
-        context.strategies[i].onTick(e);
+        context.strategyInstances[i].onTick(e);
       }
     });
-    removeTimeout(Context.globalTickerTimer);
-    Context.globalTickerTimer=setTimeout(Context.onGlobalTick,CoteContext.globalTickDelay)
+    clearTimeout(Context.globalTickerTimer);
+    Context.globalTickerTimer=setTimeout(Context.onGlobalTick,Context.globalTickDelay)
   }
   setCandleRequestBound(bound=5){
     this.candleRequestBound=bound;
   }
   addIndicator(symbol,period,indicator,inputs){
-    
+
   }
-  activate(){ Context.activeObject=this; }
+  activate(shortcuts){
+    this.strategyShortcuts=shortcuts;
+    for(var i=0;i<shortcuts.length;i++){
+      if(!this.strategies[shortcuts[i].name]){
+        this.strategies[shortcuts[i].name] = require("../../Strategies/js/"+shortcuts[i].name+".js");
+      }
+      var si=new this.strategies[shortcuts[i].name].strategy(shortcuts[i].symbols,shortcuts[i].inputs,this);
+      this.strategyInstances.push(si);
+    }
+    Context.activeObject=this;
+    this.initStrategies();
+    Context.onGlobalTick();
+  }
 }

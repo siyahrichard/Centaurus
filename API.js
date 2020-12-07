@@ -5,7 +5,7 @@ const HTTP=require('http');
 const URL=require('url');
 
 class API{
-  static run(url,request,response){
+  static run(url,request,response,context){
     var parts=url.pathname.split(/\/+/);
     switch(parts[2].toLowerCase()){
       case 'chart':
@@ -24,6 +24,24 @@ class API{
             response.write(JSON.stringify(scf)); response.end();
           });
         }
+        break;
+      case 'strategy':
+      if(parts[3]){
+          if(parts[3].toLowerCase()=="instance"){
+            var data=[];
+            for(var i=0;i<context.strategyInstances.length;i++){
+              var summery={};
+              summery.name=context.strategyInstances[i].getName();
+              summery.inputs=context.strategyInstances[i].inputs;
+              summery.symbols=context.strategyInstances[i].symbols;
+              data.push(summery);
+            }
+            response.write(JSON.stringify(data,null,4));
+            response.end(); return;
+          }
+        }
+        response.write(JSON.stringify(context.strategies,null,4));
+        response.end(); return;
         break;
     }
   }

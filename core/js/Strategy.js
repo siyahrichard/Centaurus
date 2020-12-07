@@ -1,7 +1,7 @@
 class Strategy{
   constructor(symbols,inputs,context){
     this.symbols=symbols?symbols:[];
-    this.inputs=inputs?inputs:MACrossoverStrategy.getDefaultInputs();
+    this.inputs=[];
     this.context=context;
   }
   onInit(){
