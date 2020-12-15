@@ -4,6 +4,22 @@ const {Exchange}=require('./exchanges/js/'+config.exchange+'.js');
 const HTTP=require('http');
 const URL=require('url');
 const {API}=require('./API.js');
+const ReadLine=require("readline");
+const Commander=require('./Commander.js');
+console.log(Commander);
+const rl=ReadLine.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+var readln_callback=Commander.exec;
+const readln=function(){
+  rl.question(">>> ",readln_back);
+};
+function readln_back(txt){
+  if(readln_callback)readln_callback(txt,Context.activeObject);
+  readln();
+};
+
 
 //Exchange.getTickers([new Symbol('BTC-USDT'),new Symbol('XRP-USDT')]);
 
@@ -29,3 +45,5 @@ HTTP.createServer((request,response)=>{
     response.end();
   }
 }).listen(config.port);
+
+readln();

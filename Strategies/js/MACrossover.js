@@ -17,8 +17,8 @@ class MACrossoverStrategy extends Strategy{
 
 
 
-    this.context.addIndicator(this.symbol,period,SMA,fastIndiInputs);
-    this.context.addIndicator(this.symbol,period,SMA,slowIndiInputs);
+    this.context.addIndicator(this.symbol,timeframe,SMA,fastIndiInputs);
+    this.context.addIndicator(this.symbol,timeframe,SMA,slowIndiInputs);
 
     return true;
   }

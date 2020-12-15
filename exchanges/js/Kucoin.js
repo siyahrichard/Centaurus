@@ -58,8 +58,8 @@ class Exchange extends ExchangeBase{
   static getCandles(symbol,period=3600,from=0,count=100,callback=null){
     //var now=parseInt(Date.now()/1000) - from*period;
     //var start=now - count*period;
-    var end = from * period;
-    var start = (from - count)*period;
+    var start = from * period;
+    var end = (from + count)*period;
     var tf=(period/60)+"min";
     if(period>=3600){
       if(period>=86400){

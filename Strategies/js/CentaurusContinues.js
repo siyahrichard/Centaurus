@@ -13,7 +13,7 @@ class CentaurusContinues extends Strategy{
     return true;
   }
   onTick(e){
-    console.log(e);
+    this.context.print(e);
     return true;
   }
   onTimer(){
