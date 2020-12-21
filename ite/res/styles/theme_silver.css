@@ -5,13 +5,13 @@ body[vision="dark"] #mobileBtn{background-image:url('../images/png/silver-mobile
 body[vision="light"] #mobileBtn{background-image:url('../images/png/silver-mobile-menu.png');background-size: 100%;}
 
 
-body[vision="dark"] #topBar{background-color:#4a4945;color:white;}
+body[vision="dark"] #topBar{background-color:#2b2833;color:white;}
 body[vision="light"] #topBar{background-color:#586aaf;color:black;}
-body[vision="dark"] #topMenuArea{background-color:#4a4945;color:white;}
+body[vision="dark"] #topMenuArea{background-color:#2b2833;color:white;}
 body[vision="light"] #topMenuArea{background-color:#fafbff;color:black;}
-body[vision="dark"] #sideBar{background-color:#4a4945;color:white;}
+body[vision="dark"] #sideBar{background-color:#2b2833;color:white;}
 body[vision="light"] #sideBar{background-color:#0b153e;color:white;}
-body[vision="dark"] #statusBar{background-color:#4a4945;color:white;}
+body[vision="dark"] #statusBar{background-color:#2b2833;color:white;}
 body[vision="light"] #statusBar{background-color:#fafbff;color:black;}
 
 body[vision="dark"] #sideMinBtn{background-image:url('../images/png/silver-side-min.png');}
@@ -22,7 +22,7 @@ body[vision="dark"] #sideMaxBtn{background-image:url('../images/png/silver-side-
 body[vision="light"] #sideMaxBtn{background-image:url('../images/png/silver-side-max.png');}
 
 /*body background color= workarea background color or workarea must be transparent*/
-body[vision="dark"]{background-color:#5c5b56;}
+body[vision="dark"]{background-color:#44424c;}
 body[vision="light"]{background-color:white;}
 body[vision="dark"] #workArea{background-color: transparent;color:white;}
 body[vision="light"] #workArea{background-color: transparent;color:#4d5057;}
@@ -43,12 +43,12 @@ body[vision="light"] #workArea{background-color: transparent;color:#4d5057;}
 #sideBar {/*box-shadow: 0px 0px 0.5em rgba(33,33,33,0.5);*/}
 #workArea{box-shadow: 0px 0px 0.2em rgba(33,33,33,0.3) inset}
 
-body[vision="dark"] #sideMenuArea{margin:3em 0px;background-color: #363533;padding:1em 0px 1em 0px;}
+body[vision="dark"] #sideMenuArea{margin:3em 0px;background-color: #1a181d;padding:1em 0px 1em 0px;}
 body[vision="light"] #sideMenuArea{margin:3em 0px;background-color: #0d194a;padding:1em 0px 1em 0px;}
 
-body[vision="dark"] #sideMenuArea li[selected="true"]{background-color:#52514c;cursor: default;}
+body[vision="dark"] #sideMenuArea li[selected="true"]{background-color:#44424c;cursor: default;}
 body[vision="light"] #sideMenuArea li[selected="true"]{background-color:#2b4577;cursor: default;}
-body[vision="dark"] #sideMenuArea li[selected="false"]{background-color:#333333;cursor: pointer;}
+body[vision="dark"] #sideMenuArea li[selected="false"]{background-color:#2a2531;cursor: pointer;}
 body[vision="light"] #sideMenuArea li[selected="false"]{background-color:#1a2a67;cursor: pointer;}
 
 body[vision="dark"] #topMenuArea li[selected="true"]{background-color:#52514c;cursor: default;}
@@ -56,7 +56,7 @@ body[vision="light"] #topMenuArea li[selected="true"]{background-color:#ccddfc;c
 body[vision="dark"] #topMenuArea li[selected="false"]{cursor: pointer;}
 body[vision="light"] #topMenuArea li[selected="false"]{cursor: pointer;}
 
-body[vision="dark"] #floatMenuBtn{background-image: url('../images/png/silver-float-menu.png');background-color:#4a4945;}
+body[vision="dark"] #floatMenuBtn{background-image: url('../images/png/silver-float-menu.png');background-color:#2b2833;}
 body[vision="light"] #floatMenuBtn{background-image: url('../images/png/red-float-menu.png');background-color:#fafbff;}
 
 body[vision="dark"] .gse-component{background-color: silver}

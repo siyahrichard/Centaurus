@@ -1,10 +1,14 @@
 *{outline: none;padding:0px;margin:0px}
 ul.hlist{margin: 0px;padding: 0px;} ul.hlist li{display: inline-block}
 
-#searchBox{display: inline-block;background-color: white;padding:0.2em;border-radius: 0.3em}
-#searchBox input{background-color: transparent;border:none;width: 5em;transition: width 0.5s;vertical-align: middle;}
+#searchBox{display: inline-block;background-color: white;padding:0.2em;border-radius: 0.2em}
+#searchBox input{background-color: transparent;border:none;width: 5em;transition: width 0.5s;vertical-align: middle;margin-left: 0.3em}
 #searchBox input:focus{width: 10em}
-#searchBox img{height:1.5em;margin-left: 0.5em;vertical-align: middle;}
+body[ort="land"] #searchBox img{height:1em;}
+body[ort="port"] #searchBox img{height:1.2em;}
+body[ort="land"] #searchBox input{font-size: 1em}
+body[ort="port"] #searchBox input{font-size: 1.2em}
+#searchBox img{margin-left: 0.5em;vertical-align: middle;}
 
 .activity.view3.layout1 #symbolPan{display: inline-block;height: calc(100% - 25vh);width: 20%;vertical-align: top}
 .activity.view3.layout1 #workspacePan{display: inline-block;height: calc(100% - 25vh);width: 79%;vertical-align: top;background-color: #fafdff;}
@@ -21,4 +25,4 @@ ul.hlist{margin: 0px;padding: 0px;} ul.hlist li{display: inline-block}
 .activity.view3 #symbolList li .base{font-size: 1em;font-weight: bold}
 .activity.view3 #symbolList li .quote{font-size: 0.8em;margin-left: 0.5em}
 .activity.view3 #symbolList li .quote:before{content: '/'}
-.activity.view3.layout1 #quoteFilterPan li{border-right: 1px solid silver;border-left: 1px solid silver; border-bottom: 1px solid silver;padding:0.5em;font-size: 0.7em;border-bottom-left-radius: 0.3em;border-bottom-right-radius: 0.3em;margin-left:0.3em}
+.activity.view3.layout1 #quoteFilterPan li{border-right: 1px solid silver;border-left: 1px solid silver; border-bottom: 1px solid silver;padding:0.5em;font-size: 0.7em;border-bottom-left-radius: 0.3em;border-bottom-right-radius: 0.3em;margin-left:0.3em;cursor: pointer;}
